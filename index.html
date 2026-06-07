@@ -1,1 +1,595 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-нұсқа — Магистратура КТ</title>
 
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#eef7ff,#f6fff4);
+  color:#1b1b1b;
+  user-select:none;
+}
+.wrapper{max-width:950px;margin:auto;padding:16px}
+.hero{
+  background:linear-gradient(135deg,#1565c0,#43a047);
+  color:white;
+  padding:28px 20px;
+  border-radius:22px;
+  text-align:center;
+  margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+.hero h1{margin:0 0 10px;font-size:30px;line-height:1.2}
+.hero p{margin:8px 0;font-size:16px;line-height:1.5}
+.badge{
+  display:inline-block;
+  background:white;
+  color:#1565c0;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:bold;
+  margin-top:12px;
+  font-size:14px;
+}
+.copyright-box{
+  background:#fff8e1;
+  border:2px solid #fbc02d;
+  color:#5d4037;
+  padding:16px;
+  border-radius:18px;
+  margin-bottom:18px;
+  line-height:1.5;
+  text-align:center;
+  font-weight:bold;
+}
+.nav-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:18px;
+}
+.nav-buttons a{
+  text-align:center;
+  text-decoration:none;
+  background:white;
+  color:#1565c0;
+  padding:14px;
+  border-radius:14px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+  border:1px solid #dbeafe;
+}
+.card{
+  background:white;
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.card h2{margin-top:0;color:#1565c0;font-size:22px}
+.section-title{
+  background:#e3f2fd;
+  border-left:5px solid #1565c0;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:18px;
+}
+.question{
+  background:#f7f7f7;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:16px;
+  border-left:5px solid #43a047;
+}
+.question b{
+  display:block;
+  margin-bottom:12px;
+  font-size:16px;
+  line-height:1.5;
+}
+label{
+  display:block;
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  cursor:pointer;
+  line-height:1.4;
+}
+label:hover{background:#e8f5e9}
+input[type="radio"]{margin-right:8px;transform:scale(1.1)}
+.question-image{
+  width:100%;
+  max-width:520px;
+  display:block;
+  margin:12px auto 16px;
+  border-radius:14px;
+  border:1px solid #ddd;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+.text-box{
+  background:#fafafa;
+  padding:16px;
+  border-radius:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+audio{width:100%;margin:12px 0 18px}
+button{
+  width:100%;
+  background:#1565c0;
+  color:white;
+  border:none;
+  padding:16px;
+  border-radius:14px;
+  cursor:pointer;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+}
+button:hover{background:#0d47a1}
+.result-box{
+  background:#e8f5e9;
+  border:2px solid #43a047;
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  margin-bottom:18px;
+}
+.result-box h2{margin-top:0;color:#2e7d32}
+.score-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+.score-item{
+  background:white;
+  padding:12px;
+  border-radius:14px;
+  font-weight:bold;
+}
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+.explanation{
+  background:#f1f8e9;
+  padding:12px;
+  margin:10px 0 18px;
+  border-radius:12px;
+  line-height:1.5;
+}
+.footer{
+  text-align:center;
+  color:#555;
+  font-size:14px;
+  padding:20px 0;
+  line-height:1.5;
+}
+@media(max-width:600px){
+  .wrapper{padding:12px}
+  .hero{padding:24px 16px;border-radius:18px}
+  .hero h1{font-size:24px}
+  .nav-buttons{grid-template-columns:1fr}
+  .card{padding:16px;border-radius:17px}
+  .question{padding:15px}
+  .question b{font-size:15px}
+  label{font-size:15px;padding:11px}
+  button{font-size:16px;padding:15px}
+  .score-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+<div class="hero">
+  <h1>4-нұсқа — Магистратура КТ</h1>
+  <p>Сыни ойлау, аналитикалық ойлау және English бөлімі</p>
+  <span class="badge">80 сұрақ • Нәтиже бірден шығады</span>
+</div>
+
+<div class="copyright-box">
+  © @elnazm_ln<br>
+  Бұл сайтты сатуға, көшіруге және рұқсатсыз таратуға болмайды.<br>
+  Сайтты сатуға БОЛМАЙДЫ!
+</div>
+
+<div class="nav-buttons">
+  <a href="#critical">Сыни ойлау</a>
+  <a href="#analytical">Аналитикалық ойлау</a>
+  <a href="#english">Ағылшын тілі</a>
+</div>
+
+<div class="card">
+  <h2>Нұсқаулық</h2>
+  <p>Бұл тест 3 бөлімнен тұрады:</p>
+  <ul>
+    <li><b>Сыни ойлау:</b> 1–15 сұрақ</li>
+    <li><b>Аналитикалық ойлау:</b> 16–30 сұрақ</li>
+    <li><b>English:</b> 1–50 сұрақ</li>
+  </ul>
+  <p>Барлық сұрақтарға жауап беріп, соңында нәтижені және түсіндірмелерді көріңіз.</p>
+</div>
+
+<section id="critical" class="card">
+  <div class="section-title">
+    <h2>Part 1. Сыни ойлау</h2>
+    <p>Дұрыс жауапты таңдаңыз.</p>
+  </div>
+  <div id="criticalQuiz"></div>
+  <div id="criticalResults"></div>
+</section>
+
+<section id="analytical" class="card">
+  <div class="section-title">
+    <h2>Part 2. Аналитикалық ойлау</h2>
+    <p>Мәтінді оқып, дұрыс жауапты таңдаңыз.</p>
+  </div>
+
+  <div id="analyticalIntro"></div>
+
+  <h2>Мәтін 1</h2>
+  <div class="text-box">
+    <p>Астана қаласы қуаң аймақта орналасқан, негізгі су қоры өзен мен жер асты су көздерінен құралады. Есіл өзені қаланың негізгі су артериясы болып табылады. Есілдің қаладан ағып өтетін тұсынан шағын екі өзен — Сары бұлақ пен Ақ бұлақ келіп құяды. Қаланы 25-30 км төңіректе шағын өзен-көлдер қоршап жатыр. Олардың кейбіреуі тұщы, кейбіреуі кермек сулы болып келеді.</p>
+    <p>Есілге Мойылды, Тентек, Қара су, Сары бұлақ, Ақ бұлақ өзендері келіп құяды, сонымен бірге су таратқыш канал арқылы Май балық өзенімен жалғасып жатыр. Өзенде ақ балық, нәлім, мөңке, ақ қайран, сазан, шортан, көк серке, ала бұға мекендейді. Бұрыннан қоныс тепкен қала бөлігі Есіл өзенінің солтүстігінде, оң жағалауға, темір жол магистралінен оңтүстікке қарай етек жая орналасқан. Қаланы тұрмыстық ауыз сумен қамтамасыз етудің тағы бір жолы — жер асты су көздерін пайдалану.</p>
+  </div>
+  <div id="analyticalText1"></div>
+
+  <h2>Мәтін 2</h2>
+  <div class="text-box">
+    <p>Дүниежүзілік денсаулық сақтау ұйымы сарапшыларының деректеріне сүйенсек, жастайынан темекі тартқан әрбір екі адамның бірі сол темекіден өледі екен. Ал екіншісінің өмірі жүрек-қан тамырлары ауруынан 20-25 жылға қысқарады.</p>
+    <p>Темекі түтінінің құрамындағы улы заттың бірі — никотин қышқылы. Салмағы 20 келі итке 1 тамшы, жылқыға 7-8 тамшы никотин берсе, 1 минуттың ішінде сеспей қататынын ғалымдар дәлелдеп отыр. Осы ұйымының деректеріне сүйенер болсақ, жер бетінде темекі шегуден күніне 13 мың адам көз жұмады. Бұл дегеніміз әрбір 6 секунд сайын бір адам о дүниелік болады деген сөз.</p>
+  </div>
+  <div id="analyticalText2"></div>
+
+  <h2>Мәтін 3</h2>
+  <div class="text-box">
+    <p>Құмырсқа – әлемдегі ең көп тараған жәндіктің бірі. Қазақ «құмырсқадай қажырлы», «құмырсқадай құжынаған», «құмырсқадай еңбекқор» деген тіркестерді бекер айтпаған. Осы құмырсқадай тынбай талаптанып, зерттеу жүргізіп жүрген мирмекологтардың арқасында құмырсқалар туралы көптеген қызықты деректер белгілі болды.</p>
+    <p>Бүгін жер бетінде 10 квадриллион, яғни онның 15 дәрежесіндей құмырсқа бар екен. Құмырсқаның жұмыртқасы – жұмыртқа емес, енді дамып келе жатқан дернәсіл күйінде болады. Оны Африка мен Азияда тағам ретінде қолданады. Себебі құрамы ақуыз бен майға толы.</p>
+    <p>Бір құмырсқа өз жемтігін тапқан соң, басқа құмырсқаға азығын табуға көмектесе алады. Аралар мұндайда билеп жүріп үйретсе, құмырсқалар бір жол бойымен жүріп отырып, азық табуды үйретеді. Құмырсқалар отарын құратын аналығы, негізінен 5-6 жыл, кейде 12 жыл өмір сүреді.</p>
+  </div>
+  <div id="analyticalText3"></div>
+
+  <h2>Мәтін 4</h2>
+  <div class="text-box">
+    <p>Тіл адам қоғамында өмір сүріп, оның «қажетін» жүзеге асыратын құрал болғандықтан, тіл білімінің әлеуметтік лингвистика деп аталатын саласының атқарар қызметі де, ғылыми маңызы да ерекше. Әлеуметтік лингвистика тілдің қоғамдық сипатын, стильдік саралануын, әлеуметтік ерекшелігін, қоғамдағы қостілдік, көптілдік мәселелерін, тілдік жағдай, тілдік саясат ұғымдарын және т.б. айқындауға мүмкіндік береді.</p>
+    <p>Ол тіларалық байланыс жағдайындағы кез келген тілдің өмір сүру формасына, қоғамдық қызметінің ауқымы мен сипатына қатысты айқындалатын тілдердің қызмет ету ерекшеліктерін қарастырады. Тілдің барлық белгілерін оның қоғамдағы орнымен, әлеуметтік өзгешелігімен байланыстырды. Тілдің әлеуметтік деңгейін анықтау, оның қоғамдық танымын саралау және қоғамдық сананы қалыптастырудағы атқарар қызметін талдап көрсетумен тығыз байланысты болады.</p>
+  </div>
+  <div id="analyticalText4"></div>
+  <div id="analyticalResults"></div>
+</section>
+
+<section id="english" class="card">
+  <div class="section-title">
+    <h2>Part 3. English</h2>
+    <p>Дұрыс жауапты таңдаңыз.</p>
+  </div>
+
+  <h2>Listening 1</h2>
+  <audio controls controlsList="nodownload">
+    <source src="TEXT%2037%20-%20АУДИО.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="engListening1"></div>
+
+  <h2>Listening 2</h2>
+  <audio controls controlsList="nodownload">
+    <source src="TEXT%2038%20-%20АУДИО.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="engListening2"></div>
+
+  <div class="section-title">
+    <h2>Lexico-Grammar Test</h2>
+    <p>Дұрыс грамматикалық немесе лексикалық нұсқаны таңдаңыз.</p>
+  </div>
+  <div id="engGrammar"></div>
+
+  <h2>Reading 1 — The city of Wellington</h2>
+  <div class="text-box">
+    <p>According to Maori legend, Wellington was first discovered in the 10th century by the great Polynesian explorer Kupe. By the time the explorer Captain Cook visited in 1773, the harbour was lined with Maori settlements. Today a popular viewing point, Mt Victoria, is built on top of an ancient Maori burial ground.</p>
+    <p>Wellington was named in honor of Arthur Wellesley, the first Duke of Wellington. Wellington has been the capital of New Zealand since 1865. New Zealand's first capital city was Old Russell in 1840-41. Auckland was the second capital from 1841 until 1865, when Parliament was moved to Wellington after an argument that persisted for a decade.</p>
+    <p>Today Wellington is one of the busiest port and the country's second largest urban area. The population of Wellington is about 449,000 people. Wellington ranks as one of New Zealand's chief seaports and serves both domestic and international shipping. The port of Wellington handles millions of tons of cargo annually importing petroleum products, motor vehicles, minerals and exporting meat, wood products, dairy products.</p>
+    <p>Wellington's economy is primarily service-based, with an emphasis on finance, business services, and government. Many national government departments have their head offices in Wellington and many of New Zealand's banks and insurance companies have their headquarters in the city.</p>
+  </div>
+  <div id="engReading1"></div>
+
+  <h2>Reading 2 — Washington, D.C.</h2>
+  <div class="text-box">
+    <p>Yesterday, Stephen returned from a trip to Washington, D.C., the capital of the United States. His visit took place during the week prior to the Fourth of July. Logically, there were many activities and celebrations in town in preparation for Independence Day. During his stay in the city, Stephen visited a lot of important historical sites and monuments, and he left with a deeper understanding of the political history of the United States.</p>
+    <p>Stephen spent a lot of time outdoors exploring the important monuments surrounding Capitol Hill. Of course, he saw the White House from its outside gate at 1600 Pennsylvania Avenue. Stephen also visited the Washington Monument, the Jefferson Memorial, and the Lincoln Memorial. These statues and pavilions are dedicated to former U.S. presidents. They commemorate the contributions that these leaders made throughout American history.</p>
+    <p>Away from the Capitol Hill area, Washington, D.C. has many museums and art galleries worth visiting. Stephen enjoyed his visit to Washington, D.C. because he learned a lot more about American history after touring each important landmark.</p>
+  </div>
+  <div id="engReading2"></div>
+  <div id="englishResults"></div>
+</section>
+
+<div class="card">
+  <button onclick="checkAnswers()">Нәтижені көру / Показать результат</button>
+</div>
+
+<div id="results"></div>
+
+<div class="footer">
+  © @elnazm_ln — Сайтты сатуға, көшіруге және рұқсатсыз таратуға болмайды.
+</div>
+
+</div>
+
+<script>
+const criticalQuestions=[
+{q:"1. Теңсіздікті шешіңіз: −3 < 1 + 2x ≤ 7",options:["A) −3 ≤ x ≤ 3","B) −2 < x ≤ 4","C) −2 ≤ x ≤ 3","D) −2 < x ≤ 3","E) −2 < x ≤ 8"],answer:3,explanation:"−3 < 1+2x ≤ 7. Барлық бөліктен 1 азайтамыз: −4 < 2x ≤ 6. 2-ге бөлеміз: −2 < x ≤ 3. Дұрыс жауап — D."},
+{q:"2. Бағанды салыстырыңыз: A шамасы: (x + 3y)², B шамасы: (4x + y)².",options:["A) Берілген мәлімет жеткіліксіз","B) A шамасы үлкен","C) Шамалар тең","D) B шамасы үлкен"],answer:0,explanation:"x және y мәндері берілмеген. Сондықтан екі өрнекті нақты салыстыру мүмкін емес. Дұрыс жауап — A."},
+{q:"3. Мектепте үйірмелер саны 24. Олардың 1/6 бөлігі домбыра үйірмесі, 1/3 бөлігі скрипка болса, қалғаны вокал. Вокалда жалпы үйірменің қанша бөлігі болады?",options:["A) 30%","B) 40%","C) 50%","D) 60%","E) 70%"],answer:2,explanation:"Домбыра 1/6, скрипка 1/3 = 2/6. Барлығы 3/6, қалғаны 3/6 = 1/2 = 50%. Дұрыс жауап — C."},
+{q:"4. Ақмарал апай 3 күн кітап оқыды. Бірінші күні оқыған беттерінің екінші күні оқыған беттер санына қатынасы 9:5, ал екінші күні мен үшінші күні оқыған бет сандарының қатынасы 5:2. Бірінші күні үшінші күнге қарағанда 49 бет артық оқыды. Екінші күні неше бет кітап оқыды?",options:["A) 24","B) 35","C) 19","D) 63","E) 14"],answer:1,explanation:"Бірінші күн 9k, екінші күн 5k, үшінші күн 2k. Бірінші мен үшінші күн айырмасы: 9k−2k=7k=49, k=7. Екінші күн: 5k=35. Дұрыс жауап — B."},
+{q:"5. Берілген кестедегі мәлімет бойынша дұрыс тұжырымды көрсетіңіз. A шамасы: егер шеңбердің ұзындығы 12π тең болса, оның радиусы. B шамасы: егер дөңгелектің ауданы 9π тең болса, оның диаметрі.",options:["A) 2A < B","B) A > B","C) A < B","D) A = 2B","E) A = B"],answer:4,explanation:"A: C=2πr=12π, r=6. B: S=πr²=9π, r=3, диаметрі 6. A=6, B=6. Дұрыс жауап — E."},
+{q:"6. Берілген диаграмма бойынша 2020 жылы сатылған смартфондардың орташа бағасын табыңыз.",image:"IMG_0914.jpeg",options:["A) 14000","B) 15000","C) 11000","D) 12000","E) 13000"],answer:4,explanation:"Диаграммадағы мәндер бойынша орташа баға 13000 болады. Дұрыс жауап — E."},
+{q:"7. Жолаушы бірінші күні барлық жолдың 68% пайызын жүріп өткенде тағы 600 км жол қалды. Жолаушы бірінші күні қанша километр жол жүрді?",options:["A) 127,5 км","B) 2275 км","C) 1275 км","D) 12750 км","E) 1230 км"],answer:2,explanation:"Қалған жол 32% = 600 км. Толық жол: 600 / 0.32 = 1875 км. Бірінші күні 68% жүрген: 1875 × 0.68 = 1275 км. Дұрыс жауап — C."},
+{q:"8. Диаграммада 3 университеттің 3 жылдық студенттерді қабылдау нәтижесі көрсетілген. A шамасы: 2020 жылы қабылданған студенттер саны. B шамасы: 2019 жылы қабылданған студенттер саны.",image:"IMG_0915.jpeg",options:["A) Берілген мәлімет жеткіліксіз","B) A шамасы үлкен","C) Шамалар тең","D) B шамасы үлкен"],answer:3,explanation:"Диаграмма бойынша 2019 жылғы жалпы қабылдау 2020 жылғы жалпы қабылдаудан көп. Сондықтан B шамасы үлкен. Дұрыс жауап — D."},
+{q:"9. Боялған бөліктің ауданы a болса, қалған бөліктің ауданын табыңыз.",image:"IMG_0916.jpeg",options:["A) 2a","B) 7a","C) 8a","D) 5a","E) 3a"],answer:2,explanation:"Жауап кілті бойынша қалған бөліктің ауданы 8a. Дұрыс жауап — C."},
+{q:"10. Берілген кестедегі мәлімет бойынша дұрыс тұжырымды көрсетіңіз. A шамасы: шаршы қабырғасы 15%-ға арттырғанда ауданы неше пайызға артады? B шамасы: тіктөртбұрыштың ұзындығын 20%-ға, енін 15%-ға кеміткенде ауданы неше пайызға кемиді?",options:["A) Берілген мәлімет жеткіліксіз","B) A шамасы үлкен","C) Шамалар тең","D) B шамасы үлкен"],answer:1,explanation:"Шаршы қабырғасы 15% артса, ауданы 1.15²=1.3225, яғни 32.25% артады. Тіктөртбұрышта 1.2×0.85=1.02, ауданы 2% артады, кемімейді. Сондықтан A шамасы үлкен. Дұрыс жауап — B."},
+{q:"11. |4 + |2x + 1|| = 9, x-тің мәнін тап?",options:["A) −2; 3","B) 4; 3","C) 2; −3","D) −2; −3","E) 7; 5"],answer:2,explanation:"|4+|2x+1||=9. Ішкі өрнек әрқашан оң болғандықтан 4+|2x+1|=9. |2x+1|=5. 2x+1=5 немесе 2x+1=−5. x=2 немесе x=−3. Дұрыс жауап — C."},
+{q:"12. Диаграммада өзендердің ұзындықтары көрсетілген. Волга ұзындығы Ніл өзенінің қанша пайызы екенін табу керек.",image:"IMG_0917.jpeg",options:["A) 47%","B) 72,6%","C) 53%","D) 8%","E) 28%"],answer:2,explanation:"Диаграмма бойынша Ніл — 6671 км, Волга — 3530 км. 3530 / 6671 × 100 ≈ 53%. Дұрыс жауап — C."},
+{q:"13. Есептің мәнін тап: 1/x = 7 болса, 2 + (7x² + 1) / 7x²",options:["A) 12","B) 15","C) 14","D) 10","E) 13"],answer:3,explanation:"1/x=7 болса, x=1/7. Өрнекті есептегенде мәні 10 шығады. Дұрыс жауап — D."},
+{q:"14. Дүкенде теледидар мен компьютер бағаларының қатынасы 3/5, теледидар мен тоңазытқыш қатынасы 5/7 тең. Теледидар компьютерден 460 000-ға қымбат болса, тоңазытқыштың бағасы қанша?",options:["A) 1 510 000","B) 1 600 000","C) 1 615 000","D) 1 610 000","E) 1 640 000"],answer:3,explanation:"Жауап кілті бойынша тоңазытқыштың бағасы 1 610 000. Дұрыс жауап — D."},
+{q:"15. Боялған бөліктің ауданын тап.",image:"IMG_0918.jpeg",options:["A) 1","B) 0,5","C) 0,375","D) 2","E) 0,25"],answer:2,explanation:"Координаталық тордағы боялған үшбұрыш ауданы жауап кілті бойынша 0,375. Дұрыс жауап — C."}
+];
+
+const analyticalIntroQuestions=[
+{q:"16. Өлеңді мағынасы сәйкес теңеу сөзбен толықтырыңыз. […] бұрқ-сарқ етіп долданғанда, Алты қанат ақ орда үй шайқалды.",options:["A) Тарсылдамай","B) Боранды","C) Борандай","D) Тарсылдап","E) Боранмен"],answer:2,explanation:"Мағынасы бойынша «Борандай бұрқ-сарқ етіп долданғанда» деген теңеу сәйкес келеді. Дұрыс жауап — C."},
+{q:"17. Сөйлемді мағынасына сай толықтырыңыз. 19-20 ғасырлар аралығында электрон, радиоактивтік, рентген сәулесі, изотоптар, квант теориясы және тағы басқа жаңалықтардың ашылуы химиялық элементтер қасиеттерінің әртүрлі болуының негізгі ____ анықтады.",options:["A) себебін","B) баламасын","C) жиынтығын","D) қозғалысын","E) түрін"],answer:0,explanation:"Сөйлем мағынасы бойынша жаңалықтар химиялық элементтер қасиеттерінің әртүрлі болуының негізгі себебін анықтады. Дұрыс жауап — A."},
+{q:"18. Мәтін мазмұны бойынша сөйлемді толықтырыңыз. Кәсіптің […] Бақытжан жыл сайын 200-300 бас күркетауық бағып, оларды өсіріп, сатып отырды.",options:["A) қиындығын білмеген","B) жолын бөгеген","C) қыр-сырына қаныққан","D) дәмін білмеген","E) бәрін сезген"],answer:2,explanation:"Мағынасы бойынша кәсіптің қыр-сырына қаныққан адам ғана оны тұрақты жүргізеді. Дұрыс жауап — C."}
+];
+
+const analyticalText1Questions=[
+{q:"19. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",options:["A) Су таратқыш канал","B) Жер асты су көздері","C) Астана қаласының су қоры","D) Есіл өзені","E) Шағын өзен-көлдердің ерекшеліктері"],answer:2,explanation:"Мәтінде Астана қаласының негізгі су қоры, Есіл өзені, жер асты сулары және шағын өзен-көлдер туралы айтылған. Дұрыс жауап — C."},
+{q:"20. Берілген мәтіннің мақсатын анықтаңыз.",options:["A) Жер асты су көздерін таныту","B) Шағын өзен түрлерінің ерекшеліктерін таныту","C) Астана қаласы пайдаланатын негізгі су қорын көрсету","D) Есіл өзенінің қорын көрсету","E) Өзендегі балықтар түрін көрсету"],answer:2,explanation:"Мәтіннің негізгі мақсаты — Астана қаласы пайдаланатын негізгі су қорын көрсету. Дұрыс жауап — C."},
+{q:"21. «Негізгі» сөзіне мағынасы жақын сөзді табыңыз.",options:["A) дәлелді","B) бұрынғы","C) алдыңғы","D) басты","E) айғақты"],answer:3,explanation:"«Негізгі» сөзі «басты», «маңызды» деген мағына береді. Дұрыс жауап — D."}
+];
+
+const analyticalText2Questions=[
+{q:"22. Берілген мәтіннің мақсатын анықтаңыз.",options:["A) Темекі зияны туралы ақпарат беру","B) Темекі зиянын саралау","C) Темекі шегуді азайту","D) Темекі түрлерін сипаттау","E) Темекі түрлерін жинақтау"],answer:0,explanation:"Мәтінде темекінің адам денсаулығына зияны туралы нақты деректер берілген. Дұрыс жауап — A."},
+{q:"23. «Сеспей» сөзіне мағынасы жақын сөзді табыңыз.",options:["A) бірден","B) жайлап","C) бірте-бірте","D) асықпай","E) ақырындап"],answer:0,explanation:"«Сеспей қату» — бірден өлу, бірден құлау деген мағына береді. Дұрыс жауап — A."},
+{q:"24. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",options:["A) Елді аздырған темекі","B) Тәнді тоздырар темекі","C) Ұйым зерттеулері","D) Темекенің құрамы","E) Темекенің зардабы"],answer:4,explanation:"Мәтін темекінің зиянды салдары мен зардабы туралы. Дұрыс жауап — E."}
+];
+
+const analyticalText3Questions=[
+{q:"25. «Мирмекологтар» сөзіне мағынасы жақын сөзді табыңыз.",options:["A) жәндіктерді зерттейтін ғалымдар","B) сирек кездесетін мамандықтар","C) жәндіктер туралы еңбектер","D) құмырсқаларды зерттейтін мамандар","E) ара мен құмырсқаларды зерттейтін ғалымдар"],answer:3,explanation:"Мирмекологтар — құмырсқаларды зерттейтін мамандар. Дұрыс жауап — D."},
+{q:"26. Берілген мәтіннің мақсатын анықтаңыз.",options:["A) құмырсқалар туралы зерттеулер","B) құмырсқалар және олардың түрлеріне сараптама жасау","C) жәндіктер және құмырсқалар туралы пікір білдіру","D) құмырсқаларды басқа жәндіктермен салыстыру","E) құмырсқалардың өмірі туралы түсініктеме"],answer:4,explanation:"Мәтінде құмырсқалардың өмірі, ерекшелігі және тіршілігі туралы түсініктеме берілген. Дұрыс жауап — E."},
+{q:"27. Берілген мәтінге сәйкес тақырыпты таңдаңыз.",options:["A) Құмырсқа туралы қызықты деректер","B) Жәндіктер","C) Құмырсқалар қанша жыл өмір сүреді?","D) Аралар мен құмырсқалар","E) Құмырсқадай қажырлы"],answer:0,explanation:"Мәтінде құмырсқалар туралы бірнеше қызықты дерек берілген. Дұрыс жауап — A."}
+];
+
+const analyticalText4Questions=[
+{q:"28. Мәтінге сәйкес тақырыпты табыңыз.",options:["A) Когнитивтік лингвистика тілдің қоғамдық сипатын қарастырады","B) Тілдік құралдардың пайда болуы әлеуметтік таныммен байланысты","C) Когнитология ғылымының қалыптасу кезеңі ілкі заманнан бастау алады","D) Білім – сөйлеу әрекетін ұйымдастырушы","E) Тілдік саясат когнитивтік тіл білімі аясында қалыптасады"],answer:1,explanation:"Мәтінде тілдің әлеуметтік қызметі мен қоғамдық таныммен байланысы сөз болады. Дұрыс жауап — B."},
+{q:"29. «Ауқымы» сөзіне мағынасы жақын сөзді табыңыз.",options:["A) пішіні","B) бөлігі","C) жаны","D) мөлшері","E) беті"],answer:3,explanation:"«Ауқымы» сөзі көлемі, мөлшері, шеңбері деген мағына береді. Дұрыс жауап — D."},
+{q:"30. Мәтінде берілген ойды әрі қарай жалғастырыңыз. Тілдің әлеуметтік деңгейі ____.",options:["A) қарым-қатынасқа байланысты","B) қоғамдық таныммен, санамен байланысты","C) деңгейге байланысты","D) сөйлеу әрекетіне байланысты","E) лексикалық деңгейге байланысты"],answer:1,explanation:"Мәтінде тілдің әлеуметтік деңгейі қоғамдық таным және қоғамдық санамен байланысты екені айтылған. Дұрыс жауап — B."}
+];
+
+const englishQuestions=[
+{section:"Listening",part:"engListening1",q:"1. According to the author the “beautiful game” is ____.",options:["A) baseball","B) tennis","C) football","D) cricket"],answer:2,explanation:"The beautiful game тіркесі көбіне football туралы айтылады. Дұрыс жауап — C."},
+{section:"Listening",part:"engListening1",q:"2. Football is the thing that helps him to ____.",options:["A) go out and meet new people","B) travel a lot","C) get on well with people","D) improve his accent"],answer:0,explanation:"Аудио бойынша football оған сыртқа шығып, жаңа адамдармен танысуға көмектеседі. Дұрыс жауап — A."},
+{section:"Listening",part:"engListening1",q:"3. The true statement according to the text is ____.",options:["A) The speaker prefers just sitting and watching football.","B) The speaker also coaches football in Vienna.","C) The speaker has a regular team in Vienna.","D) The speaker has played a little with friends."],answer:1,explanation:"Жауап кілті бойынша дұрыс тұжырым — speaker also coaches football in Vienna. Дұрыс жауап — B."},
+{section:"Listening",part:"engListening1",q:"4. Football helps the author to ____.",options:["A) meet new people","B) have a regular team","C) type pages and pages about it","D) improve his accent"],answer:0,explanation:"Football авторға жаңа адамдармен танысуға көмектеседі. Дұрыс жауап — A."},
+{section:"Listening",part:"engListening1",q:"5. The two main teams in Vienna are ____.",options:["A) Spain Madrid and Rapid Vienna","B) Rapid Vienna and Austria Vienna","C) Italy Rome and Austria Vienna","D) Rapid Vienna and Spain Vienna"],answer:1,explanation:"Vienna қаласындағы екі негізгі команда — Rapid Vienna және Austria Vienna. Дұрыс жауап — B."},
+{section:"Listening",part:"engListening1",q:"6. The author has been playing football since ____.",options:["A) he started working as a coach","B) his childhood","C) his adolescence","D) he came to Vienna"],answer:1,explanation:"Аудио бойынша автор football-ды бала кезінен ойнап келеді. Дұрыс жауап — B."},
+{section:"Listening",part:"engListening1",q:"7. ____ helps the author to get out and meet new people.",options:["A) Football","B) Basketball","C) Tennis","D) Baseball"],answer:0,explanation:"Football авторға сыртқа шығуға және жаңа адамдармен танысуға көмектеседі. Дұрыс жауап — A."},
+{section:"Listening",part:"engListening1",q:"8. The speaker has been doing football since he was ____.",options:["A) 4","B) 40","C) 6","D) 14"],answer:0,explanation:"Жауап кілті бойынша speaker football-мен 4 жасынан айналысады. Дұрыс жауап — A."},
+
+{section:"Listening",part:"engListening2",q:"9. Mai-Tai remembers that the streets were ____ during their visits.",options:["A) sleepy","B) empty","C) dark","D) light"],answer:3,explanation:"Жауап кілті бойынша streets were light. Дұрыс жауап — D."},
+{section:"Listening",part:"engListening2",q:"10. ____ are mentioned in the text.",options:["A) January and March","B) February and March","C) December and January","D) January and February"],answer:3,explanation:"Мәтінде January және February айлары аталады. Дұрыс жауап — D."},
+{section:"Listening",part:"engListening2",q:"11. Mai Tai has memories of those celebrations when she was a girl in the ____.",options:["A) 1960s","B) 1940s","C) 1970s","D) 1950s"],answer:3,explanation:"Жауап кілті бойынша дұрыс жауап — 1950s. Дұрыс жауап — D."},
+{section:"Listening",part:"engListening2",q:"12. The text mentions a ____ zodiac with twelve animals.",options:["A) Egyptian","B) American","C) British","D) Chinese"],answer:3,explanation:"Мәтінде twelve animals бар Chinese zodiac туралы айтылған. Дұрыс жауап — D."},
+{section:"Listening",part:"engListening2",q:"13. While walking in the street people could feel ____ air.",options:["A) hot","B) fresh","C) cold","D) stinky"],answer:1,explanation:"Жауап кілті бойынша people could feel fresh air. Дұрыс жауап — B."},
+{section:"Listening",part:"engListening2",q:"14. People born in the year of a dog should wear the red belt for ____.",options:["A) good luck","B) bad luck","C) deep sorrow","D) bad feelings"],answer:0,explanation:"Red belt good luck үшін тағылады. Дұрыс жауап — A."},
+{section:"Listening",part:"engListening2",q:"15. ____ was the year of the dog.",options:["A) 1996","B) 2006","C) 2016","D) 1976"],answer:1,explanation:"Жауап кілті бойынша 2006 was the year of the dog. Дұрыс жауап — B."},
+{section:"Listening",part:"engListening2",q:"16. People who were born in the year of the Dog are believed to be ____.",options:["A) patient","B) greedy","C) faithful","D) unfriendly"],answer:2,explanation:"Dog жылы туған адамдар faithful деп сипатталады. Дұрыс жауап — C."},
+
+{section:"Grammar",part:"engGrammar",q:"17. Give the antonym of the word «to begin».",options:["A) to commence","B) to reply","C) to access","D) to stop"],answer:3,explanation:"To begin — бастау. Антонимі — to stop, тоқтату. Дұрыс жауап — D."},
+{section:"Grammar",part:"engGrammar",q:"18. ____ to call your sister.",options:["A) Do forget","B) Forget not","C) Not to forget","D) Don't forget"],answer:3,explanation:"Бұйрық райдың болымсыз түрі: Don’t forget. Дұрыс жауап — D."},
+{section:"Grammar",part:"engGrammar",q:"19. He ____ many books and his books ____ in twenty languages.",options:["A) wrote / were published","B) was written / were published","C) was writing / were publishing","D) had written / published"],answer:0,explanation:"He wrote many books — active. His books were published — passive. Дұрыс жауап — A."},
+{section:"Grammar",part:"engGrammar",q:"20. This book ____ that too much water is bad for you.",options:["A) have said","B) saying","C) says","D) said"],answer:2,explanation:"This book — singular subject, Present Simple: says. Дұрыс жауап — C."},
+{section:"Grammar",part:"engGrammar",q:"21. Scientists ____ everything about the universe.",options:["A) are not understand","B) do not understand","C) don't understanding","D) are not understanding"],answer:1,explanation:"Present Simple болымсыз сөйлем: do not understand. Дұрыс жауап — B."},
+{section:"Grammar",part:"engGrammar",q:"22. Galileo is supposed ____ the telescope.",options:["A) have invented","B) having invented","C) to have invented","D) to invent"],answer:2,explanation:"Is supposed + to have + V3 құрылымы өткен әрекетке қатысты қолданылады. Дұрыс жауап — C."},
+{section:"Grammar",part:"engGrammar",q:"23. ____ Prime Minister is ____ most important person in ____ British government.",options:["A) the / - / -","B) The / the / -","C) The / the / the","D) - / - / the"],answer:2,explanation:"Дұрыс құрылым: The Prime Minister is the most important person in the British government. Дұрыс жауап — C."},
+{section:"Grammar",part:"engGrammar",q:"24. Almaty is the ____ point I went so far.",options:["A) more far","B) fadier","C) further","D) farthest"],answer:3,explanation:"The сөзімен superlative form қолданылады: the farthest point. Дұрыс жауап — D."},
+{section:"Grammar",part:"engGrammar",q:"25. This is the house ____ had a great Christmas decoration.",options:["A) that","B) this","C) these","D) those"],answer:0,explanation:"Relative clause үшін that қолданылады: the house that had... Дұрыс жауап — A."},
+{section:"Grammar",part:"engGrammar",q:"26. It ____ be cold tomorrow.",options:["A) may","B) will be able to","C) will have to","D) ought"],answer:0,explanation:"Болжамды білдіру үшін may қолданылады: It may be cold tomorrow. Дұрыс жауап — A."},
+{section:"Grammar",part:"engGrammar",q:"27. The film ____ at 3.30 tomorrow.",options:["A) will be begin","B) begin","C) will have begun","D) will begin"],answer:3,explanation:"Future Simple: will begin. Дұрыс жауап — D."},
+{section:"Grammar",part:"engGrammar",q:"28. Where is Janette? I want to talk to ____.",options:["A) her","B) them","C) him","D) me"],answer:0,explanation:"Janette — әйел адам, object pronoun: her. Дұрыс жауап — A."},
+{section:"Grammar",part:"engGrammar",q:"29. She wants to know ____ from here to Edinburg.",options:["A) how far it","B) how far it is","C) how long is there","D) how long it"],answer:1,explanation:"Indirect question word order: how far it is. Дұрыс жауап — B."},
+{section:"Grammar",part:"engGrammar",q:"30. 80th floor",options:["A) eightyth","B) eighth","C) eightierth","D) eightieth"],answer:3,explanation:"80th дұрыс жазылуы — eightieth. Дұрыс жауап — D."},
+{section:"Grammar",part:"engGrammar",q:"31. What would you do if the lift ____ stuck between two floors?",options:["A) get","B) got","C) would get","D) will get"],answer:1,explanation:"Second conditional: if + Past Simple. Дұрыс жауап — B."},
+{section:"Grammar",part:"engGrammar",q:"32. You ____ to the wedding. Why didn’t you go?!",options:["A) was invited","B) were invited","C) invited","D) invite"],answer:1,explanation:"You үшін passive form: were invited. Дұрыс жауап — B."},
+{section:"Grammar",part:"engGrammar",q:"33. I’m afraid I can’t come to the party ____ Saturday.",options:["A) in","B) under","C) at","D) on"],answer:3,explanation:"Апта күндерімен on қолданылады: on Saturday. Дұрыс жауап — D."},
+{section:"Grammar",part:"engGrammar",q:"34. The map he gave us was very ____.",options:["A) confusingly","B) confusing","C) confuse","D) confused"],answer:1,explanation:"Заттың әсерін сипаттау үшін -ing adjective қолданылады: confusing. Дұрыс жауап — B."},
+
+{section:"Reading",part:"engReading1",q:"35. The city was ____ Arthur Wellesley.",options:["A) first explored by","B) destroyed by","C) renamed by","D) named in honor of"],answer:3,explanation:"Мәтінде Wellington was named in honor of Arthur Wellesley деп берілген. Дұрыс жауап — D."},
+{section:"Reading",part:"engReading1",q:"36. The second capital of New Zealand was ____.",options:["A) Wellington","B) Auckland","C) Old Russell","D) Hamilton"],answer:1,explanation:"Мәтінде Auckland was the second capital деп берілген. Дұрыс жауап — B."},
+{section:"Reading",part:"engReading1",q:"37. Exported products from the port of Wellington are ____.",options:["A) meat, wood products, dairy products","B) motor vehicles, minerals","C) dairy products, petroleum products","D) petroleum products, motor vehicles, minerals"],answer:0,explanation:"Мәтінде exporting meat, wood products, dairy products деп жазылған. Дұрыс жауап — A."},
+{section:"Reading",part:"engReading1",q:"38. Wellington is considered to be ____.",options:["A) one of New Zealand's chief seaports","B) the city with its well-known film industry","C) one of the most beautiful places of the world","D) world's health and education centre"],answer:0,explanation:"Мәтінде Wellington ranks as one of New Zealand's chief seaports деп берілген. Дұрыс жауап — A."},
+{section:"Reading",part:"engReading1",q:"39. New Zealand's banks and insurance companies ____.",options:["A) have their headquarters all over the world","B) are considered to be financially stable organizations","C) opened head offices in the city","D) have their headquarters in the city"],answer:3,explanation:"Мәтінде banks and insurance companies have their headquarters in the city деп берілген. Дұрыс жауап — D."},
+{section:"Reading",part:"engReading1",q:"40. The port of Wellington ____.",options:["A) does not support national economic prosperity","B) handles millions of tons of cargo","C) supports a busy cruise traffic","D) imports seafood products"],answer:1,explanation:"Мәтінде port of Wellington handles millions of tons of cargo annually деп жазылған. Дұрыс жауап — B."},
+{section:"Reading",part:"engReading1",q:"41. Wellington was chosen to become the capital city ____.",options:["A) by three Australian commissioners","B) by decision of Arthur Wellesley","C) upon request from Maori people","D) after an agreement of Parliament members"],answer:0,explanation:"Мәтінде Wellington was decided on by three Australian commissioners деп берілген. Дұрыс жауап — A."},
+{section:"Reading",part:"engReading1",q:"42. Mt Victoria is built ____.",options:["A) near the Town Hill","B) by first Duke of Wellington","C) on top of an ancient Maori burial ground","D) by Polynesian explorers"],answer:2,explanation:"Мәтінде Mt Victoria is built on top of an ancient Maori burial ground деп берілген. Дұрыс жауап — C."},
+
+{section:"Reading",part:"engReading2",q:"43. Why is Washington, D.C. important for the United States?",options:["A) It is a great vacation spot.","B) It's where the Fourth of July was first celebrated.","C) It offers the most outdoor tourism.","D) It is the nation's capital."],answer:3,explanation:"Washington, D.C. — United States астанасы. Дұрыс жауап — D."},
+{section:"Reading",part:"engReading2",q:"44. Yesterday, Stephen returned from a trip to Washington, D.C., the capital of the ____.",options:["A) London","B) United States","C) Canada","D) United Kingdom"],answer:1,explanation:"Мәтінде capital of the United States деп берілген. Дұрыс жауап — B."},
+{section:"Reading",part:"engReading2",q:"45. Stephen's visit took place during the week prior to the Fourth of ____.",options:["A) September","B) June","C) July","D) August"],answer:2,explanation:"Мәтінде Fourth of July деп берілген. Дұрыс жауап — C."},
+{section:"Reading",part:"engReading2",q:"46. Which phrase best describes “the Fourth of July” in the United States?",options:["A) Washington, D.C.","B) Independence Day","C) American history","D) Capitol Hill"],answer:1,explanation:"Fourth of July — Independence Day. Дұрыс жауап — B."},
+{section:"Reading",part:"engReading2",q:"47. “1600 Pennsylvania Avenue” represents:",options:["A) Washington D.C.'s main downtown area","B) The name of Stephen's hotel","C) The location of the Washington Monument","D) The White House's address"],answer:3,explanation:"1600 Pennsylvania Avenue — White House мекенжайы. Дұрыс жауап — D."},
+{section:"Reading",part:"engReading2",q:"48. Washington, Jefferson, and Lincoln can best be identified as:",options:["A) Presidents","B) Senators","C) War Heroes","D) Buildings"],answer:0,explanation:"Washington, Jefferson және Lincoln — АҚШ президенттері. Дұрыс жауап — A."},
+{section:"Reading",part:"engReading2",q:"49. Apart from Capitol Hill, what else does Washington, D.C. offer for tourists to visit?",options:["A) Tall skyscrapers","B) A theme park","C) Art galleries and museums","D) America's largest shopping mall"],answer:2,explanation:"Мәтінде museums and art galleries worth visiting деп берілген. Дұрыс жауап — C."},
+{section:"Reading",part:"engReading2",q:"50. Stephen also visited the Washington Monument, the Jefferson Memorial, and the ____ Memorial.",options:["A) Theodore Roosevelt","B) John Kennedy","C) Lincoln","D) Richard Nixon"],answer:2,explanation:"Мәтінде Lincoln Memorial деп берілген. Дұрыс жауап — C."}
+];
+
+function renderQuiz(containerId,questions,namePrefix){
+  const container=document.getElementById(containerId);
+  questions.forEach((item,index)=>{
+    let html=`<div class="question"><b>${item.q}</b>`;
+    if(item.image){
+      html+=`<img src="${item.image}" alt="Question image" class="question-image">`;
+    }
+    item.options.forEach((option,optionIndex)=>{
+      html+=`<label><input type="radio" name="${namePrefix}${index}" value="${optionIndex}"> ${option}</label>`;
+    });
+    html+=`</div>`;
+    container.innerHTML+=html;
+  });
+}
+
+function renderEnglish(){
+  englishQuestions.forEach((item,index)=>{
+    const container=document.getElementById(item.part);
+    let html=`<div class="question"><b>${item.q}</b>`;
+    item.options.forEach((option,optionIndex)=>{
+      html+=`<label><input type="radio" name="eng${index}" value="${optionIndex}"> ${option}</label>`;
+    });
+    html+=`</div>`;
+    container.innerHTML+=html;
+  });
+}
+
+renderQuiz("criticalQuiz",criticalQuestions,"critical");
+renderQuiz("analyticalIntro",analyticalIntroQuestions,"analyticalIntro");
+renderQuiz("analyticalText1",analyticalText1Questions,"analyticalText1");
+renderQuiz("analyticalText2",analyticalText2Questions,"analyticalText2");
+renderQuiz("analyticalText3",analyticalText3Questions,"analyticalText3");
+renderQuiz("analyticalText4",analyticalText4Questions,"analyticalText4");
+renderEnglish();
+
+function checkGroup(questions,namePrefix){
+  let score=0;
+  let html="";
+  questions.forEach((item,index)=>{
+    const selected=document.querySelector(`input[name="${namePrefix}${index}"]:checked`);
+    const userAnswer=selected?Number(selected.value):null;
+
+    if(userAnswer===item.answer){
+      score++;
+      html+=`<p class="correct">✔ ${item.q}</p>`;
+    }else{
+      html+=`<p class="wrong">✘ ${item.q}</p>`;
+    }
+
+    html+=`
+      <div class="explanation">
+        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer!==null?item.options[userAnswer]:"Жауап берілмеді"}<br>
+        <b>Түсіндірме:</b> ${item.explanation}
+      </div>`;
+  });
+  return {score,html};
+}
+
+function checkEnglish(){
+  let score=0,listeningScore=0,grammarScore=0,readingScore=0,html="";
+
+  englishQuestions.forEach((item,index)=>{
+    const selected=document.querySelector(`input[name="eng${index}"]:checked`);
+    const userAnswer=selected?Number(selected.value):null;
+
+    if(userAnswer===item.answer){
+      score++;
+      if(item.section==="Listening") listeningScore++;
+      if(item.section==="Grammar") grammarScore++;
+      if(item.section==="Reading") readingScore++;
+      html+=`<p class="correct">✔ ${item.q}</p>`;
+    }else{
+      html+=`<p class="wrong">✘ ${item.q}</p>`;
+    }
+
+    html+=`
+      <div class="explanation">
+        <b>Дұрыс жауап:</b> ${item.options[item.answer]}<br>
+        <b>Сіздің жауабыңыз:</b> ${userAnswer!==null?item.options[userAnswer]:"Жауап берілмеді"}<br>
+        <b>Түсіндірме:</b> ${item.explanation}
+      </div>`;
+  });
+
+  return {score,listeningScore,grammarScore,readingScore,html};
+}
+
+function checkAnswers(){
+  const critical=checkGroup(criticalQuestions,"critical");
+  const aIntro=checkGroup(analyticalIntroQuestions,"analyticalIntro");
+  const aText1=checkGroup(analyticalText1Questions,"analyticalText1");
+  const aText2=checkGroup(analyticalText2Questions,"analyticalText2");
+  const aText3=checkGroup(analyticalText3Questions,"analyticalText3");
+  const aText4=checkGroup(analyticalText4Questions,"analyticalText4");
+  const english=checkEnglish();
+
+  const analyticalScore=aIntro.score+aText1.score+aText2.score+aText3.score+aText4.score;
+  const totalScore=critical.score+analyticalScore+english.score;
+
+  let level="",messageKaz="",messageRus="";
+  if(totalScore<=30){
+    level="Бастапқы деңгей / Начальный уровень";
+    messageKaz="Сізге әлі көбірек дайындық керек.";
+    messageRus="Вам нужно ещё больше подготовиться.";
+  }else if(totalScore<=60){
+    level="Орташа деңгей / Средний уровень";
+    messageKaz="Негізгі түсінік бар, бірақ қосымша практика қажет.";
+    messageRus="Базовое понимание есть, но нужна дополнительная практика.";
+  }else{
+    level="Жақсы дайындық / Хорошая готовность";
+    messageKaz="Нәтижеңіз жақсы. Енді тұрақты қайталау маңызды.";
+    messageRus="Результат хороший. Теперь важно регулярно повторять.";
+  }
+
+  const finalBlock=`
+    <div class="result-box">
+      <h2>Жалпы нәтижеңіз: ${totalScore}/80</h2>
+      <h2>${level}</h2>
+      <p>${messageKaz}</p>
+      <p>${messageRus}</p>
+      <div class="score-grid">
+        <div class="score-item">Сыни ойлау: ${critical.score}/15</div>
+        <div class="score-item">Аналитикалық ойлау: ${analyticalScore}/15</div>
+        <div class="score-item">English: ${english.score}/50</div>
+        <div class="score-item">Listening: ${english.listeningScore}/16</div>
+        <div class="score-item">Lexico-Grammar: ${english.grammarScore}/18</div>
+        <div class="score-item">Reading: ${english.readingScore}/16</div>
+      </div>
+    </div>`;
+
+  document.getElementById("results").innerHTML=finalBlock;
+
+  document.getElementById("criticalResults").innerHTML=
+    "<h2>Сыни ойлау жауаптары</h2>"+critical.html;
+
+  document.getElementById("analyticalResults").innerHTML=
+    "<h2>Аналитикалық ойлау жауаптары</h2>"+aIntro.html+aText1.html+aText2.html+aText3.html+aText4.html;
+
+  document.getElementById("englishResults").innerHTML=
+    "<h2>English жауаптары</h2>"+english.html;
+
+  document.getElementById("results").scrollIntoView({behavior:"smooth"});
+}
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("dragstart",e=>e.preventDefault());
+document.addEventListener("copy",function(e){
+  e.preventDefault();
+  alert("Бұл сайт авторлық құқықпен қорғалған. Көшіруге болмайды. © @elnazm_ln");
+});
+document.addEventListener("keydown",function(e){
+  const k=e.key.toLowerCase();
+  if((e.ctrlKey||e.metaKey) && ["c","u","s","p"].includes(k)){
+    e.preventDefault();
+    alert("Көшіру/сақтау шектелген. © @elnazm_ln");
+  }
+});
+</script>
+
+</body>
+</html>
